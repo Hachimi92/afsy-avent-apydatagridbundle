@@ -1,0 +1,5 @@
+acseo_calendrier:
+    resource: "@ACSEOCalendrierBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
