@@ -159,6 +159,14 @@ class Article
         return $this->comments;
     }
 
+
+    public function getNbComments()
+    {
+        if ($this->publishedDate > new \DateTime()) {
+            return 0;
+        }
+        return rand(50,200);
+    }
     /**
      * Set writer
      *

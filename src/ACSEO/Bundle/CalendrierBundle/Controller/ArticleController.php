@@ -41,20 +41,39 @@ class ArticleController extends Controller
         // Affectation de la source 
         $grid->setSource($source);
 
-        // Manipulation des données pour renseigner la colonne Auteur
-        $source->manipulateRow(
-            function ($row) {
-                $row->setField('author', $row->getField("writer.firstName")." ".$row->getField("writer.lastName"));
-
-                return $row;
-        });
-        
         $rowAction = new RowAction("Voir l'article", 'article_show');
         $grid->addRowAction($rowAction);
         
         $rowAction = new RowAction("Supprimer l'article", 'article_delete', true, '_self');
         $rowAction->setConfirmMessage("Etes vous sur de vouloir supprimer cet article ?");
         $grid->addRowAction($rowAction);
+
+        $nbCommentsColumn = new BlankColumn(array('id' => 'nbComments', 'title' => 'Commentaires'));
+        $grid->addColumn($nbCommentsColumn, 8);
+ 
+        // Manipulation des données
+        $source->manipulateRow(
+            function ($row) {
+                $row->setField('author', $row->getField("writer.firstName")." ".$row->getField("writer.lastName"));
+
+                $nbComments = $row->getEntity()->getNbComments();
+                $comment = "Amazing !";
+                if ($nbComments == 0) {
+                    $comment = "";
+                }
+                elseif ($nbComments < 100 ) {
+                    $comment = "Not Bad !";
+                }
+                $row->setField('nbComments', sprintf("%s. %s", $nbComments, $comment));
+                
+                $publishedDate = $row->getField("publishedDate");
+                if ($publishedDate > new \Datetime())
+                {
+                    $row->setColor("#CCCCCC");    
+                }
+                
+                return $row;
+        });       
 
         // Renvoie une réponse
         return $grid->getGridResponse('ACSEOCalendrierBundle:Article:index.html.twig');
