@@ -3,8 +3,8 @@ ACSEO\Bundle\CalendrierBundle\Entity\Article:
         columns:
             id: ~
             title: ~
-            content: ~
             publishedDate: ~
+            author: ~
             writer.firstName: ~
             writer.lastName: ~
             writer.companyName: ~
@@ -23,27 +23,26 @@ ACSEO\Bundle\CalendrierBundle\Entity\Article:
             id: title
             title: Titre de l'article
             operatorsVisible: false
-        content:
+        author:
             filterable: false
-            visible: false
-            id: content
-            title: content
+            visible: true
+            id: author
+            title: Auteur
+            operatorsVisible: false
         publishedDate:
             filterable: false
             visible: true
             id: publishedDate
             title: Date de publication
         writer.firstName:
-            filterable: true
-            visible: true
+            filterable: false
+            visible: false
             id: writer.firstName
             field: writer.firstName
             source: true
-            title: Prénom de l'auteur
-            operators: ["like", "nlike"]
         writer.lastName:
             filterable: true
-            visible: true
+            visible: false
             id: writer.lastName
             field: writer.lastName
             source: true
