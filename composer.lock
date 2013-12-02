@@ -3,8 +3,69 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e67df720e8a1a2e0e6df41d91d788e48",
+    "hash": "0d11725bb5117e6bdcd4246e0fa0337e",
     "packages": [
+        {
+            "name": "apy/datagrid-bundle",
+            "version": "dev-master",
+            "target-dir": "APY/DataGridBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/acseo/APYDataGridBundle.git",
+                "reference": "8b04830d65f4f666c00d0bc5b5eb267ca1536ee5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/acseo/APYDataGridBundle/zipball/8b04830d65f4f666c00d0bc5b5eb267ca1536ee5",
+                "reference": "8b04830d65f4f666c00d0bc5b5eb267ca1536ee5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/symfony": ">=2.0.0",
+                "twig/twig": ">=1.5.0"
+            },
+            "suggest": {
+                "PHPExcel": "Export the grid (Excel, HTML or PDF)",
+                "ext-intl": "Translate the grid",
+                "ext-mbstring": "Convert your data with the right charset"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "APY\\DataGridBundle": ""
+                }
+            },
+            "authors": [
+                {
+                    "name": "Yoann Petit",
+                    "email": "abhoryo@free.fr"
+                },
+                {
+                    "name": "Stanislav Turza",
+                    "email": "stanislav.turza@gmail.com"
+                },
+                {
+                    "name": "Evan Owens",
+                    "email": "eaowens@gmail.com"
+                }
+            ],
+            "description": "Symfony2 Datagrid Bundle",
+            "homepage": "https://github.com/Abhoryo/APYDataGridBundle",
+            "keywords": [
+                "Symfony",
+                "datagrid"
+            ],
+            "support": {
+                "source": "https://github.com/acseo/APYDataGridBundle/tree/master"
+            },
+            "time": "2013-11-05 08:54:14"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.1.2",
@@ -1516,9 +1577,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "apy/datagrid-bundle": 20
+    },
     "platform": {
         "php": ">=5.3.3"
     },
