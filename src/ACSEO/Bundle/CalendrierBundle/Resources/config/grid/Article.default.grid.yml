@@ -5,39 +5,66 @@ ACSEO\Bundle\CalendrierBundle\Entity\Article:
             title: ~
             content: ~
             publishedDate: ~
-            writer: ~
+            writer.firstName: ~
+            writer.lastName: ~
+            writer.companyName: ~
             comments: ~        
         groupBy: ~
         filterable: ~
     Columns:
         id:
-            filterable: true
-            visible: true
+            filterable: false
+            visible: false
             id: id
             title: id
         title:
             filterable: true
             visible: true
             id: title
-            title: title
+            title: Titre de l'article
+            operatorsVisible: false
         content:
-            filterable: true
-            visible: true
+            filterable: false
+            visible: false
             id: content
             title: content
         publishedDate:
-            filterable: true
+            filterable: false
             visible: true
             id: publishedDate
-            title: publishedDate
-        writer:
+            title: Date de publication
+        writer.firstName:
             filterable: true
             visible: true
-            id: writer
-            title: writer
-        comments:
+            id: writer.firstName
+            field: writer.firstName
+            source: true
+            title: Prénom de l'auteur
+            operators: ["like", "nlike"]
+        writer.lastName:
             filterable: true
             visible: true
-            id: comments
-            title: comments
+            id: writer.lastName
+            field: writer.lastName
+            source: true
+            title: Nom de l'auteur
+            operatorsVisible: false
+            filter: select
+        writer.companyName:
+            filterable: true
+            visible: true
+            id: writer.companyName
+            field: writer.companyName
+            source: true
+            title: Société
+            operatorsVisible: false
+            filter: select
+            selectMulti: true
+            selectExpanded: true
+            #selectFrom: source
+        # comments:
+        #     filterable: true
+        #     visible: true
+        #     id: comments
+        #     title: comments
         
