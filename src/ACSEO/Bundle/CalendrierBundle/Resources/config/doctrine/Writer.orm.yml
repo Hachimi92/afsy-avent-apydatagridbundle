@@ -1,0 +1,25 @@
+ACSEO\Bundle\CalendrierBundle\Entity\Writer:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        firstName:
+            type: string
+            length: 255
+        lastName:
+            type: string
+            length: 255
+        birthDate:
+            type: datetime
+        companyName:
+            type: string
+            length: 255
+    oneToMany:
+            articles:
+                targetEntity: ACSEO\Bundle\CalendrierBundle\Entity\Article
+                mappedBy: writer
+    lifecycleCallbacks: {  }

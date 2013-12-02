@@ -1,0 +1,27 @@
+ACSEO\Bundle\CalendrierBundle\Entity\Article:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        title:
+            type: string
+            length: 255
+        content:
+            type: text
+        publishedDate:
+            type: datetime
+    manyToOne:
+        writer:
+            targetEntity: ACSEO\Bundle\CalendrierBundle\Entity\Writer
+            joinColumn:
+                name: writer_id
+                referencedColumnName: id
+    oneToMany:
+            comments:
+                targetEntity: ACSEO\Bundle\CalendrierBundle\Entity\Comment
+                mappedBy: article
+    lifecycleCallbacks: {  }
