@@ -9,10 +9,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use ACSEO\Bundle\CalendrierBundle\Entity\Article;
 
-// Inclusion de la classe Entity d'APYDataGrid
+// Inclusion des classes APYDataGrid nécessaires
 use APY\DataGridBundle\Grid\Source\Entity;
 use APY\DataGridBundle\Grid\Column\BlankColumn;
 use APY\DataGridBundle\Grid\Action\RowAction;
+use APY\DataGridBundle\Grid\Export\CSVExport;
+use APY\DataGridBundle\Grid\Export\ExcelExport;
 
 /**
  * Article controller.
@@ -75,6 +77,8 @@ class ArticleController extends Controller
                 return $row;
         });       
 
+        $grid->addExport(new CSVExport('Exporter au format CSV'));
+        $grid->addExport(new CSVExport('Exporter au format Excel'));
         // Renvoie une réponse
         return $grid->getGridResponse('ACSEOCalendrierBundle:Article:index.html.twig');
     }
