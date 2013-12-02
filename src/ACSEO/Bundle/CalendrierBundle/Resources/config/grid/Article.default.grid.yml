@@ -1,0 +1,43 @@
+ACSEO\Bundle\CalendrierBundle\Entity\Article:
+    Source:
+        columns:
+            id: ~
+            title: ~
+            content: ~
+            publishedDate: ~
+            writer: ~
+            comments: ~        
+        groupBy: ~
+        filterable: ~
+    Columns:
+        id:
+            filterable: true
+            visible: true
+            id: id
+            title: id
+        title:
+            filterable: true
+            visible: true
+            id: title
+            title: title
+        content:
+            filterable: true
+            visible: true
+            id: content
+            title: content
+        publishedDate:
+            filterable: true
+            visible: true
+            id: publishedDate
+            title: publishedDate
+        writer:
+            filterable: true
+            visible: true
+            id: writer
+            title: writer
+        comments:
+            filterable: true
+            visible: true
+            id: comments
+            title: comments
+        
